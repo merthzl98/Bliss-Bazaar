@@ -1,0 +1,105 @@
+.grid-container {
+  display: grid;
+  height: 50rem;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "one two four" "one two four-low";
+  gap: 1.3rem;
+  margin-top: 1.3rem;
+  transition: all 0.3s ease-in;
+
+  .featured {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: all 0.3s ease-in;
+      background-color: rgba(0, 0, 0, 0.4);
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.65) !important;
+      }
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+
+    .main-description {
+      transition: all 0.3s ease-in;
+      position: absolute;
+      bottom: -5rem;
+      left: 2rem;
+      color: white;
+      font-size: 3.8rem;
+      font-weight: 600;
+    }
+
+    &:hover {
+      .main-description {
+        transition: all 0.3s ease-in;
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        color: white;
+        font-size: 3.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .grid-one {
+    grid-area: one;
+  }
+
+  .grid-two {
+    grid-area: two;
+  }
+
+  .grid-four {
+    grid-area: four;
+  }
+
+  .grid-four-low {
+    grid-area: four-low;
+  }
+}
+
+@media (max-width: 750px) {
+  .grid-container {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "one two"
+      "four four-low";
+    grid-gap: 13px;
+    gap: 13px;
+
+    .featured {
+      .main-description {
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 3rem;
+      }
+      &:hover {
+        .main-description {
+          bottom: 1rem;
+          left: 1rem;
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+
+
