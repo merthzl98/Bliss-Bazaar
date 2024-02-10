@@ -1,105 +1,149 @@
-.grid-container {
-  display: grid;
-  height: 50rem;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "one two four" "one two four-low";
-  gap: 1.3rem;
-  margin-top: 1.3rem;
-  transition: all 0.3s ease-in;
+$gradient-color-1: #ffffff;
+$gradient-color-2: #00000000;
 
-  .featured {
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
+.hero-container {
+  position: relative;
+  .hero-title {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    top: 5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 7vw;
+    font-weight: 600;
+    padding: 4rem 0rem;
+    opacity: 0.25;
+    background: -webkit-linear-gradient(
+      left,
+      $gradient-color-1,
+      $gradient-color-2,
+      $gradient-color-1
+    );
+    background-size: 1600px 200px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-duration: 8s;
+    animation-name: animationgradienttitle;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+  }
 
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      transition: all 0.3s ease-in;
-      background-color: rgba(0, 0, 0, 0.4);
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.65) !important;
+  .hide-title {
+    display: none;
+  }
+
+  .grid-container {
+    display: grid;
+    height: 50rem;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "one two three";
+    gap: 1.5rem;
+    transition: all 0.3s ease-in;
+
+    .featured {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4));
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transition: all 0.3s ease-in;
+        background-color: rgba(0, 0, 0, 0.4);
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.65) !important;
+        }
       }
-    }
 
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: 50% 50%;
-    }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
 
-    .main-description {
-      transition: all 0.3s ease-in;
-      position: absolute;
-      bottom: -5rem;
-      left: 2rem;
-      color: white;
-      font-size: 3.8rem;
-      font-weight: 600;
-    }
-
-    &:hover {
       .main-description {
         transition: all 0.3s ease-in;
         position: absolute;
-        bottom: 2rem;
+        bottom: -5rem;
         left: 2rem;
         color: white;
         font-size: 3.8rem;
         font-weight: 600;
       }
+
+      &:hover {
+        .main-description {
+          transition: all 0.3s ease-in;
+          position: absolute;
+          bottom: 2rem;
+          left: 2rem;
+          color: white;
+          font-size: 3.8rem;
+          font-weight: 600;
+        }
+      }
     }
-  }
 
-  .grid-one {
-    grid-area: one;
-  }
+    .grid-one {
+      grid-area: one;
+    }
 
-  .grid-two {
-    grid-area: two;
-  }
+    .grid-two {
+      grid-area: two;
+    }
 
-  .grid-four {
-    grid-area: four;
-  }
-
-  .grid-four-low {
-    grid-area: four-low;
+    .grid-three {
+      grid-area: three;
+    }
   }
 }
 
 @media (max-width: 750px) {
-  .grid-container {
-    height: 500px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas:
-      "one two"
-      "four four-low";
-    grid-gap: 13px;
-    gap: 13px;
+  .hero-container {
+    .hero-title {
+      display: none;
+    }
+    .grid-container {
+      height: 500px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 3fr);
+      grid-template-areas: "one" "two" "three";
+      grid-gap: 13px;
+      gap: 13px;
 
-    .featured {
-      .main-description {
-        bottom: 1rem;
-        left: 1rem;
-        font-size: 3rem;
-      }
-      &:hover {
+      .featured {
         .main-description {
           bottom: 1rem;
           left: 1rem;
           font-size: 3rem;
+        }
+        &:hover {
+          .main-description {
+            bottom: 1rem;
+            left: 1rem;
+            font-size: 3rem;
+          }
         }
       }
     }
   }
 }
 
-
+@keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}

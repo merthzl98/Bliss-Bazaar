@@ -34,10 +34,11 @@ body::-webkit-scrollbar-track {
 }
 
 main {
-  padding-top: 12rem;
+  padding-top: 15rem;
   display: flex;
   flex-direction: column;
-  gap: 11rem;
+  gap: 8rem;
+  min-height: 100rem;
 }
 
 ul {

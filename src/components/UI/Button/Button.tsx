@@ -9,7 +9,7 @@ const Button = (props: ButtonProps) => {
   const { text, onClick } = props;
   return (
     <button className="button" onClick={onClick}>
-      {text.toUpperCase()}
+      {text}
     </button>
   );
 };

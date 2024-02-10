@@ -22,7 +22,14 @@ const Navbar = () => {
 
         <ul className="link-list">
           <li>
-            <Link to="/products?category=all">Products</Link>
+            <Link
+              to={{
+                pathname: "products",
+                search: "category=all",
+              }}
+            >
+              Products
+            </Link>
           </li>
           <TbShoppingCart />
           <span className="menu-icon">

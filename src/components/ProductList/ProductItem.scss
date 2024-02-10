@@ -1,0 +1,27 @@
+.product {
+  outline: 2px solid rgba(0, 0, 0, 0.205);
+  outline-offset: -2px;
+  transition: all 0.15s ease-in;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: (2px 2px 2px rgba(0, 0, 0, 0.05));
+  &:hover {
+    outline: 2px solid rgba(0, 0, 0, 0.7);
+    scale: 1.1;
+  }
+
+  .product-header img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-details {
+    font-size: 1.7rem;
+    padding: 1rem;
+    .product-price {
+      font-weight: 600;
+      font-size: 2.2rem;
+      margin-top: 1.4rem;
+    }
+  }
+}

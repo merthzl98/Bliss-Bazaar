@@ -1,28 +1,28 @@
-import Img1 from "../img/products/1.jpg";
-import Img2 from "../img/products/2.jpg";
-import Img3 from "../img/products/3.png";
-import Img4 from "../img/products/4.jpg";
-import Img5 from "../img/products/5.jpg";
-import Img6 from "../img/products/6.jpg";
-import Img7 from "../img/products/7.jpg";
-import Img8 from "../img/products/8.jpg";
-import Img9 from "../img/products/9.png";
-import Img10 from "../img/products/10.jpg";
-import Img11 from "../img/products/11.jpg";
-import Img12 from "../img/products/12.png";
-import Img13 from "../img/products/13.jpg";
-import Img14 from "../img/products/14.png";
-import Img15 from "../img/products/15.jpg";
-import Img16 from "../img/products/16.jpg";
-import Img17 from "../img/products/17.png";
-import Img18 from "../img/products/18.png";
-import Img19 from "../img/products/19.jpg";
-import Img20 from "../img/products/20.jpg";
+import Img1 from "../assets/products/1.jpg";
+import Img2 from "../assets/products/2.jpg";
+import Img3 from "../assets/products/3.png";
+import Img4 from "../assets/products/4.jpg";
+import Img5 from "../assets/products/5.jpg";
+import Img6 from "../assets/products/6.jpg";
+import Img7 from "../assets/products/7.jpg";
+import Img8 from "../assets/products/8.jpg";
+import Img9 from "../assets/products/9.png";
+import Img10 from "../assets/products/10.jpg";
+import Img11 from "../assets/products/11.jpg";
+import Img12 from "../assets/products/12.png";
+import Img13 from "../assets/products/13.jpg";
+import Img14 from "../assets/products/14.png";
+import Img15 from "../assets/products/15.jpg";
+import Img16 from "../assets/products/16.jpg";
+import Img17 from "../assets/products/17.png";
+import Img18 from "../assets/products/18.png";
+import Img19 from "../assets/products/19.jpg";
+import Img20 from "../assets/products/20.jpg";
 
 export const PRODUCT_LIST = [
   {
     id: 1,
-    category: "chair",
+    category: "chairs",
     img: Img1,
     description: "Little Armchair Sheepskin",
     price: 986,
@@ -46,7 +46,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 3,
-    category: "lamp",
+    category: "lamps",
     img: Img3,
     description: "Lamp Light Blue",
     price: 79,
@@ -58,7 +58,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 4,
-    category: "furniture",
+    category: "furnitures",
     img: Img4,
     description: "Pulp Unit - 5 Compartments",
     price: 254,
@@ -70,7 +70,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 5,
-    category: "lamp",
+    category: "lamps",
     img: Img5,
     description: "Golden Modern Light",
     price: 189,
@@ -82,7 +82,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 6,
-    category: "skin-care",
+    category: "facial",
     img: Img6,
     description: "Body Oil 200ml",
     price: 67,
@@ -94,7 +94,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 7,
-    category: "lamp",
+    category: "lamps",
     img: Img7,
     description: "Black and White Lamp",
     price: 220,
@@ -106,7 +106,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 8,
-    category: "furniture",
+    category: "furnitures",
     img: Img8,
     description: "Gejst Shelf A Black Ash/Black",
     price: 115,
@@ -118,7 +118,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 9,
-    category: "furniture",
+    category: "furnitures",
     img: Img9,
     description: "Cube Lolo Vase Black",
     price: 161,
@@ -130,7 +130,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 10,
-    category: "chair",
+    category: "chairs",
     img: Img10,
     description: "Traditional Armchair",
     price: 89,
@@ -142,7 +142,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 11,
-    category: "lamp",
+    category: "lamps",
     img: Img11,
     description: "The Sun Pendant Black",
     price: 160,
@@ -154,7 +154,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 12,
-    category: "lamp",
+    category: "lamps",
     img: Img12,
     description: "Simple Golden Lamp",
     price: 220,
@@ -166,7 +166,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 13,
-    category: "skin-care",
+    category: "facial",
     img: Img13,
     description: "Unbleached Cotton Pads 180",
     price: 33,
@@ -178,7 +178,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 14,
-    category: "chair",
+    category: "chairs",
     img: Img14,
     description: "Oak Spanish Chair",
     price: 520,
@@ -190,7 +190,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 15,
-    category: "chair",
+    category: "chairs",
     img: Img15,
     description: "Copenhagen Armchair",
     price: 330,
@@ -202,7 +202,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 16,
-    category: "electronic",
+    category: "electronics",
     img: Img16,
     description: "Anti Dark Light",
     price: 120,
@@ -214,7 +214,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 17,
-    category: "lamp",
+    category: "lamps",
     img: Img17,
     description: "Table Lamp",
     price: 75,
@@ -226,7 +226,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 18,
-    category: "lamp",
+    category: "lamps",
     img: Img18,
     description: "Mat Black Lamp",
     price: 175,
@@ -238,7 +238,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 19,
-    category: "chair",
+    category: "chairs",
     img: Img19,
     description: "Comfy Chair",
     price: 119,
@@ -250,7 +250,7 @@ export const PRODUCT_LIST = [
   },
   {
     id: 20,
-    category: "skin-care",
+    category: "facial",
     img: Img20,
     description: "Body Oil 50ml",
     price: 45,
@@ -269,5 +269,5 @@ export const CATEGORY_LIST = [
   { id: 4, title: "Lamps" },
   { id: 5, title: "Kitchen" },
   { id: 6, title: "Chairs" },
-  { id: 7, title: "Skin Care" },
+  { id: 7, title: "Facial" },
 ];
