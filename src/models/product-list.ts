@@ -8,4 +8,5 @@ export type Product = {
   texture: string;
   weight: string;
   size: string;
+  isBest: boolean;
 };

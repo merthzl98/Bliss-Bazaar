@@ -63,13 +63,13 @@ const marks = [
     label: "$1",
   },
   {
-    value: 2000,
-    label: "$2000",
+    value: 1000,
+    label: "$1000",
   },
 ];
 
 const PriceSlider = () => {
-  const [values, setValues] = useState<number[]>([2, 700]);
+  const [values, setValues] = useState<number[]>([1, 700]);
 
   const extractRange = (values: number[], isLabel: boolean) => {
     values.sort((a, b) => a - b);
@@ -81,7 +81,7 @@ const PriceSlider = () => {
     setValues(newValue as number[]);
   };
 
-  console.log({ values });
+  // console.log({ values });
 
   return (
     <Box
@@ -89,7 +89,7 @@ const PriceSlider = () => {
         display: "flex",
         flexDirection: "column",
         gap: "2rem",
-        border: "2px solid rgba(0, 0, 0, 0.3)",
+        border: "2px solid rgba(0, 0, 0, 0.2)",
         width: "30rem",
         p: "2rem 3rem",
         borderRadius: "0.5rem",
@@ -109,7 +109,7 @@ const PriceSlider = () => {
         onChange={handleChangeValues}
         valueLabelDisplay="auto"
         marks={marks}
-        max={2000}
+        max={1000}
         min={1}
         slots={{ thumb: AirbnbThumbComponent }}
         getAriaLabel={(index) =>

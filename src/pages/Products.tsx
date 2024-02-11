@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Filters from "../components/Filters/Filters";
 import ProductList from "../components/ProductList/ProductList";
 import { PRODUCT_LIST } from "../api/mock-data";
 import { Product } from "../models/product-list";
+import HeadFilters from "../components/Filters/HeadFilters";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const Products = () => {
 
   return (
     <main>
-      <Filters
+      <HeadFilters
         onClickCategory={handleClickCategory}
         selectedCategory={selectedCategory}
       />

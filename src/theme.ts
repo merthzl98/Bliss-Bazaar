@@ -1,18 +1,9 @@
-import { createTheme } from "@mui/material";
+import createTheme from "@mui/material/styles/createTheme";
 
-declare module "@mui/material/styles" {
-  interface Theme {
-    status: {};
-  }
-  // allow configuration using `createTheme`
-  interface ThemeOptions {
-    status?: {};
-  }
-}
 
 const theme = createTheme({
   palette: {
-    // primary: { main: "#33a7fb" },
+    primary: { main: "#2d2e32" },
   },
 
   typography: {
