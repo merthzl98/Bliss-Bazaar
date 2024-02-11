@@ -28,9 +28,10 @@ export const PRODUCT_LIST = [
     price: 986,
     specs:
       "Tradition Little Petra VB1 Armchair Sheepskin Moonlight/ Walnut/ Brass Limited Edition | We give you a special discount when you put this product in the basket.",
-    texture: "Sheep Skin",
+    texture: "Wood",
     weight: "15kg",
     size: "150cm x 70cm",
+    isBest: true,
   },
   {
     id: 2,
@@ -43,6 +44,7 @@ export const PRODUCT_LIST = [
     texture: "Plastic",
     weight: "3.5kg",
     size: "20xm x 10cm",
+    isBest: false,
   },
   {
     id: 3,
@@ -55,6 +57,7 @@ export const PRODUCT_LIST = [
     texture: "Plastic",
     weight: "2kg",
     size: "15cm x 15cm",
+    isBest: true,
   },
   {
     id: 4,
@@ -67,6 +70,7 @@ export const PRODUCT_LIST = [
     texture: "Wood",
     weight: "45kg",
     size: "250cm x 60cm",
+    isBest: false,
   },
   {
     id: 5,
@@ -79,6 +83,7 @@ export const PRODUCT_LIST = [
     texture: "Plastic",
     weight: "3kg",
     size: "20cm x 20cm",
+    isBest: false,
   },
   {
     id: 6,
@@ -91,6 +96,7 @@ export const PRODUCT_LIST = [
     texture: "Liquid",
     weight: "200ml",
     size: "10cm x 5cm",
+    isBest: true,
   },
   {
     id: 7,
@@ -103,6 +109,7 @@ export const PRODUCT_LIST = [
     texture: "Plastic",
     weight: "6kg",
     size: "20cm x 20cm",
+    isBest: false,
   },
   {
     id: 8,
@@ -115,6 +122,7 @@ export const PRODUCT_LIST = [
     texture: "Wood",
     weight: "10kg",
     size: "60cm x 20cm",
+    isBest: true,
   },
   {
     id: 9,
@@ -127,6 +135,7 @@ export const PRODUCT_LIST = [
     texture: "Ceramics",
     weight: "12kg",
     size: "45cm x 15cm",
+    isBest: false,
   },
   {
     id: 10,
@@ -139,6 +148,7 @@ export const PRODUCT_LIST = [
     texture: "Wood",
     weight: "8kg",
     size: "60cm x 40cm",
+    isBest: false,
   },
   {
     id: 11,
@@ -151,6 +161,7 @@ export const PRODUCT_LIST = [
     texture: "Plastic",
     weight: "4kg",
     size: "20cm x 20cm",
+    isBest: true,
   },
   {
     id: 12,
@@ -163,6 +174,7 @@ export const PRODUCT_LIST = [
     texture: "Plastic",
     weight: "4kg",
     size: "15cm x 15cm",
+    isBest: false,
   },
   {
     id: 13,
@@ -175,6 +187,7 @@ export const PRODUCT_LIST = [
     texture: "Cotton",
     weight: "180g",
     size: "20cm x 10cm",
+    isBest: true,
   },
   {
     id: 14,
@@ -187,6 +200,7 @@ export const PRODUCT_LIST = [
     texture: "Wood",
     weight: "15kg",
     size: "60cm x 30cm",
+    isBest: false,
   },
   {
     id: 15,
@@ -199,6 +213,7 @@ export const PRODUCT_LIST = [
     texture: "Wood",
     weight: "14kg",
     size: "65cm x 35cm",
+    isBest: false,
   },
   {
     id: 16,
@@ -211,6 +226,7 @@ export const PRODUCT_LIST = [
     texture: "Metal",
     weight: "2kg",
     size: "15cm x 10cm",
+    isBest: false,
   },
   {
     id: 17,
@@ -223,6 +239,7 @@ export const PRODUCT_LIST = [
     texture: "Metal",
     weight: "5kg",
     size: "25cm x 15cm",
+    isBest: false,
   },
   {
     id: 18,
@@ -235,6 +252,7 @@ export const PRODUCT_LIST = [
     texture: "Metal",
     weight: "6kg",
     size: "20cm x 15cm",
+    isBest: true,
   },
   {
     id: 19,
@@ -244,9 +262,10 @@ export const PRODUCT_LIST = [
     price: 119,
     specs:
       "Sum is a series designed by the Danish designer Simon Legald, who is the epitome of modern elegance. Elegant and resolute as the tip of a wing, the armrests spread out invitingly, as if they want to embrace you in the armchair's soft, homely space.",
-    texture: "Comfy Material",
+    texture: "Wood",
     weight: "25kg",
     size: "60cm x 30cm",
+    isBest: false,
   },
   {
     id: 20,
@@ -259,6 +278,7 @@ export const PRODUCT_LIST = [
     texture: "Liquid",
     weight: "50ml",
     size: "10cm x 5cm",
+    isBest: false,
   },
 ];
 
@@ -270,4 +290,13 @@ export const CATEGORY_LIST = [
   { id: 5, title: "Kitchen" },
   { id: 6, title: "Chairs" },
   { id: 7, title: "Facial" },
+];
+
+export const TEXTURE_LIST = [
+  { id: 1, title: "Plastic", status: true },
+  { id: 2, title: "Wood", status: true },
+  { id: 3, title: "Cotton", status: true },
+  { id: 4, title: "Liquid", status: true },
+  { id: 5, title: "Metal", status: false },
+  { id: 6, title: "Ceramic", status: false },
 ];
