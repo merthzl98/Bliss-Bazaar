@@ -12,6 +12,8 @@ html {
 body {
   font-family: "Blinker", sans-serif;
   position: relative;
+  width: 100% !important;
+  min-height: 100vh !important;
 }
 
 body::-webkit-scrollbar {
@@ -28,16 +30,14 @@ body::-webkit-scrollbar-track {
   border-radius: 20px;
 }
 
-:root {
+#root {
   display: flex;
   justify-content: center;
 }
 
 main {
+  width: 100%;
   padding-top: 15rem;
-  display: flex;
-  flex-direction: column;
-  gap: 8rem;
   min-height: 100rem;
 }
 

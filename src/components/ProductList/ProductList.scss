@@ -1,23 +1,26 @@
-.product-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3rem;
-}
-
-@media (max-width: 750px) {
+.products-container {
+  width: 100%;
   .product-list {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
   }
 }
 
-@media (max-width: 600px) {
-  .product-list {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 990px) {
+  .products-container {
+    .product-list {
+      grid-template-columns: 1fr 1fr;
+    }
   }
+ 
 }
 
-@media (max-width: 430px) {
-  .product-list {
-    grid-template-columns: 1fr;
+@media (max-width: 650px) {
+  .products-container {
+    .product-list {
+      grid-template-columns: 1fr;
+    }
   }
+ 
 }

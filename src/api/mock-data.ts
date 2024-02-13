@@ -32,6 +32,7 @@ export const PRODUCT_LIST = [
     weight: "15kg",
     size: "150cm x 70cm",
     isBest: true,
+    color: "white",
   },
   {
     id: 2,
@@ -45,6 +46,7 @@ export const PRODUCT_LIST = [
     weight: "3.5kg",
     size: "20xm x 10cm",
     isBest: false,
+    color: "white",
   },
   {
     id: 3,
@@ -58,6 +60,7 @@ export const PRODUCT_LIST = [
     weight: "2kg",
     size: "15cm x 15cm",
     isBest: true,
+    color: "blue",
   },
   {
     id: 4,
@@ -71,6 +74,7 @@ export const PRODUCT_LIST = [
     weight: "45kg",
     size: "250cm x 60cm",
     isBest: false,
+    color: "brown",
   },
   {
     id: 5,
@@ -84,6 +88,7 @@ export const PRODUCT_LIST = [
     weight: "3kg",
     size: "20cm x 20cm",
     isBest: false,
+    color: "brown",
   },
   {
     id: 6,
@@ -97,12 +102,13 @@ export const PRODUCT_LIST = [
     weight: "200ml",
     size: "10cm x 5cm",
     isBest: true,
+    color: "brown",
   },
   {
     id: 7,
     category: "lamps",
     img: Img7,
-    description: "Black and White Lamp",
+    description: "Black Lamp",
     price: 220,
     specs:
       "Concept: Dot is inspired by perforated metal and the patterns that light creates when it shines through the small holes. The contrast between the coarse perforated metal and the smooth opal glass makes the Dot a simple and meaningful pendant. With its elegant expression, Shine, whether the light is on or off.",
@@ -110,6 +116,7 @@ export const PRODUCT_LIST = [
     weight: "6kg",
     size: "20cm x 20cm",
     isBest: false,
+    color: "black",
   },
   {
     id: 8,
@@ -123,6 +130,7 @@ export const PRODUCT_LIST = [
     weight: "10kg",
     size: "60cm x 20cm",
     isBest: true,
+    color: "black",
   },
   {
     id: 9,
@@ -136,6 +144,7 @@ export const PRODUCT_LIST = [
     weight: "12kg",
     size: "45cm x 15cm",
     isBest: false,
+    color: "black",
   },
   {
     id: 10,
@@ -149,6 +158,7 @@ export const PRODUCT_LIST = [
     weight: "8kg",
     size: "60cm x 40cm",
     isBest: false,
+    color: "gray",
   },
   {
     id: 11,
@@ -162,6 +172,7 @@ export const PRODUCT_LIST = [
     weight: "4kg",
     size: "20cm x 20cm",
     isBest: true,
+    color: "black",
   },
   {
     id: 12,
@@ -175,6 +186,7 @@ export const PRODUCT_LIST = [
     weight: "4kg",
     size: "15cm x 15cm",
     isBest: false,
+    color: "yellow",
   },
   {
     id: 13,
@@ -188,6 +200,7 @@ export const PRODUCT_LIST = [
     weight: "180g",
     size: "20cm x 10cm",
     isBest: true,
+    color: "white",
   },
   {
     id: 14,
@@ -201,6 +214,7 @@ export const PRODUCT_LIST = [
     weight: "15kg",
     size: "60cm x 30cm",
     isBest: false,
+    color: "brown",
   },
   {
     id: 15,
@@ -214,6 +228,7 @@ export const PRODUCT_LIST = [
     weight: "14kg",
     size: "65cm x 35cm",
     isBest: false,
+    color: "brown",
   },
   {
     id: 16,
@@ -227,6 +242,7 @@ export const PRODUCT_LIST = [
     weight: "2kg",
     size: "15cm x 10cm",
     isBest: false,
+    color: "black",
   },
   {
     id: 17,
@@ -240,6 +256,7 @@ export const PRODUCT_LIST = [
     weight: "5kg",
     size: "25cm x 15cm",
     isBest: false,
+    color: "gray",
   },
   {
     id: 18,
@@ -253,6 +270,7 @@ export const PRODUCT_LIST = [
     weight: "6kg",
     size: "20cm x 15cm",
     isBest: true,
+    color: "black",
   },
   {
     id: 19,
@@ -266,6 +284,7 @@ export const PRODUCT_LIST = [
     weight: "25kg",
     size: "60cm x 30cm",
     isBest: false,
+    color: "black",
   },
   {
     id: 20,
@@ -279,6 +298,7 @@ export const PRODUCT_LIST = [
     weight: "50ml",
     size: "10cm x 5cm",
     isBest: false,
+    color: "white",
   },
 ];
 
@@ -299,4 +319,13 @@ export const TEXTURE_LIST = [
   { id: 4, title: "Liquid", status: true },
   { id: 5, title: "Metal", status: false },
   { id: 6, title: "Ceramic", status: false },
+];
+
+export const COLOR_LIST = [
+  { id: 1, title: "Black", status: true },
+  { id: 2, title: "White", status: true },
+  { id: 3, title: "Brown", status: true },
+  { id: 4, title: "Gray", status: true },
+  { id: 5, title: "Blue", status: false },
+  { id: 6, title: "Yellow", status: false },
 ];

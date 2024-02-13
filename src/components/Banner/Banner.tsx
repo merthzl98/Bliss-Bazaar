@@ -25,7 +25,14 @@ const Banner = () => {
             curated collection allows you to indulge in luxury while keeping
             your lifestyle effortlessly chic.
           </p>
-          <Button onClick={handleClick} text="Shop Now" />
+          <Button
+            onClick={handleClick}
+            text="Shop Now"
+            fontSize="1.7rem"
+            fontWeight="600"
+            padding="1.5rem 2.25rem"
+            width="15rem"
+          />
         </div>
       </div>
     </section>
