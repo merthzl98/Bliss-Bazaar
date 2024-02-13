@@ -1,13 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Slider, { SliderThumb } from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import { Box, Typography } from "@mui/material";
+import {
+  Box,
+  FormControl,
+  InputBase,
+  InputLabel,
+  Stack,
+  Typography,
+} from "@mui/material";
+import { useDispatch } from "react-redux";
+
+import Button from "../UI/Button/Button";
+import { applyPriceFilter } from "../../store/filter-slice";
+
+const NumberInput = styled(InputBase)(({ theme }) => ({
+  "label + &": {
+    marginTop: theme.spacing(3),
+  },
+  "&.MuiInputBase-root": {
+    color: "rgba(54, 54, 54, 0.95)",
+    borderRadius: "0.25rem",
+    position: "relative",
+    backgroundColor: theme.palette.mode === "light" ? "#fff" : "#2b2b2b",
+    border: "2px solid rgba(0, 0, 0, 0.2)",
+    fontSize: "1.5rem",
+    width: "100%",
+    padding: "0.35rem .5rem 0.35rem .7rem",
+  },
+  "& .MuiInputBase-input": {
+    padding: "0.3rem .5rem",
+    transition: theme.transitions.create([
+      "border-color",
+      "background-color",
+      "box-shadow",
+    ]),
+  },
+}));
 
 const AirbnbSlider = styled(Slider)(({ theme }) => ({
   color: "#3a8589",
   height: 3,
-  padding: "13px 0",
+  padding: "13px 0px",
 
   "& .MuiSlider-thumb": {
     height: 27,
@@ -69,11 +104,21 @@ const marks = [
 ];
 
 const PriceSlider = () => {
-  const [values, setValues] = useState<number[]>([1, 700]);
+  const [values, setValues] = useState<number[]>([3, 989]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (values[0] > values[1]) {
+      const sortedList = values.slice().sort((a, b) => a - b);
+      setValues(sortedList);
+    }
+  }, [values]);
 
   const extractRange = (values: number[], isLabel: boolean) => {
-    values.sort((a, b) => a - b);
-    const sortedValues = isLabel ? `$${values[0]} - $${values[1]}` : values;
+    const sortedList = values.slice().sort((a, b) => a - b);
+    const sortedValues = isLabel
+      ? `$${sortedList[0]} - $${sortedList[1]}`
+      : sortedList;
     return sortedValues;
   };
 
@@ -81,28 +126,87 @@ const PriceSlider = () => {
     setValues(newValue as number[]);
   };
 
-  // console.log({ values });
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let index = event.target.name === "min" ? 0 : 1;
+    const newValues = [...values];
+
+    newValues[index] =
+      event.target.value === "" ? 0 : Number(event.target.value);
+    setValues(newValues);
+  };
+
+  const handleBlur = (value: number, index: number) => {
+    if (value < 0) {
+      const newValues = [...values];
+      newValues[index] = 1;
+      setValues(newValues);
+    } else if (value > 1000) {
+      const newValues = [...values];
+      newValues[index] = 1000;
+      setValues(newValues);
+    }
+  };
+
+  const handleClickApply = () => {
+    dispatch(applyPriceFilter(values));
+  };
 
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: "2rem",
-        border: "2px solid rgba(0, 0, 0, 0.2)",
-        width: "30rem",
-        p: "2rem 3rem",
-        borderRadius: "0.5rem",
+        gap: "3rem",
+        width: "20rem",
+        p: "1rem 1.5rem",
       }}
     >
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography gutterBottom fontSize={20}>
-          Price Range
-        </Typography>
-        <Typography fontSize={20} fontWeight={600}>
-          {extractRange(values, true)}
-        </Typography>
-      </Box>
+      <Stack sx={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+        <FormControl sx={{ width: "50%" }} variant="standard">
+          <InputLabel
+            sx={{ fontSize: "2rem", color: "#000000" }}
+            shrink
+            htmlFor="min"
+          >
+            Min.
+          </InputLabel>
+          <NumberInput
+            value={values[0]}
+            size="small"
+            name="min"
+            onChange={handleInputChange}
+            onBlur={() => handleBlur(values[0], 0)}
+            inputProps={{
+              min: 0,
+              max: 1000,
+              type: "number",
+              "aria-labelledby": "input-slider",
+            }}
+          />
+        </FormControl>
+        <FormControl sx={{ width: "50%" }} variant="standard">
+          <InputLabel
+            sx={{ fontSize: "2rem", color: "#000000" }}
+            shrink
+            htmlFor="max"
+          >
+            Max.
+          </InputLabel>
+          <NumberInput
+            value={values[1]}
+            size="small"
+            name="max"
+            onChange={handleInputChange}
+            onBlur={() => handleBlur(values[1], 1)}
+            inputProps={{
+              min: 0,
+              max: 1000,
+              type: "number",
+              "aria-labelledby": "input-slider",
+            }}
+          />
+        </FormControl>
+      </Stack>
 
       <AirbnbSlider
         value={values}
@@ -116,6 +220,25 @@ const PriceSlider = () => {
           index === 0 ? "Minimum price" : "Maximum price"
         }
       />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Typography fontSize={17} fontWeight={600}>
+          {extractRange(values, true)}
+        </Typography>
+        <Button
+          onClick={handleClickApply}
+          text="Apply"
+          fontSize="1.25rem"
+          fontWeight="600"
+          padding="1rem 0.25rem"
+          width="7rem"
+        />
+      </Box>
     </Box>
   );
 };

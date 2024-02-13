@@ -1,4 +1,4 @@
-import { Product } from "../../models/product-list";
+import { Product } from "../../models/product";
 import "./ProductItem.scss";
 
 type ProductItemProps = {

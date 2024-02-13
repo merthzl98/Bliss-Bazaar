@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdChevronLeft } from "react-icons/md";
 
 import "./HeadFilters.scss";
-import { CATEGORY_LIST, TEXTURE_LIST } from "../../api/mock-data";
+import { CATEGORY_LIST } from "../../api/mock-data";
 import SelectInput from "../UI/SelectInput/SelectInput";
 import { sortConfig } from "../../static/config";
 import TextInput from "../UI/TextInput/TextInput";
@@ -12,13 +11,20 @@ import SearchIcon from "@mui/icons-material/Search";
 type FiltersProps = {
   onClickCategory: (categoryTitle: string) => void;
   selectedCategory: string | null;
+  searchValue: string;
+  setSearchValue: (value: string) => void;
+  orderValue: string;
+  setOrderValue: (value: string) => void;
 };
 
-const HeadFilters = ({ onClickCategory, selectedCategory }: FiltersProps) => {
-  const [orderValue, setrderValue] = useState<string>(sortConfig[0].value);
-  const [searchValue, setSearchValue] = useState<string>("");
-  const [textureList, setTextureList] = useState(TEXTURE_LIST);
-
+const HeadFilters = ({
+  onClickCategory,
+  selectedCategory,
+  searchValue,
+  setSearchValue,
+  orderValue,
+  setOrderValue,
+}: FiltersProps) => {
   const categoryList = CATEGORY_LIST.map((category) => (
     <li
       className={
@@ -46,23 +52,25 @@ const HeadFilters = ({ onClickCategory, selectedCategory }: FiltersProps) => {
       </div>
       <div className="second-row">
         <TextInput
+          width="30rem"
           value={searchValue}
           setValue={setSearchValue}
           label="Search"
           maxRows={null}
-          startIcon={<SearchIcon sx={{ width: "2rem", height: "2rem" }} />}
+          startIcon={
+            <SearchIcon
+              sx={{ color: "#2d2e32", width: "2rem", height: "2rem" }}
+            />
+          }
         />
         <SelectInput
           data={sortConfig}
           width="20rem"
           label="Sort by"
           value={orderValue}
-          setValue={setrderValue}
+          setValue={setOrderValue}
         />
       </div>
-
-      {/* <PriceSlider /> */}
-      {/* <CheckboxesGroup valueList={textureList} setValueList={setTextureList} /> */}
     </section>
   );
 };

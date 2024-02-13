@@ -32,6 +32,10 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
       backgroundColor: "rgba(54, 54, 54, 0.03)",
     },
   },
+  "& .MuiSvgIcon-root": {
+    width: "2rem",
+    height: "2rem",
+  },
 }));
 
 type SelectInputProps = {

@@ -1,15 +1,79 @@
-import { Product } from "../../models/product-list";
+import { useEffect } from "react";
+import { Box, Skeleton, Typography } from "@mui/material";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+
+import { Product } from "../../models/product";
 import ProductItem from "./ProductItem";
 import "./ProductList.scss";
 
-const ProductList = ({ productList }: { productList: Product[] }) => {
+type ListProps = {
+  productList: Product[];
+  isLoading: boolean;
+  setIsLoading: (value: boolean) => void;
+};
+
+const ProductList = ({ productList, isLoading, setIsLoading }: ListProps) => {
+  useEffect(() => {
+    setTimeout(() => {
+      isLoading && setIsLoading(false);
+    }, 750);
+  }, [isLoading]);
+
+  const renderNoItem = (
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "2rem",
+      }}
+    >
+      <Typography fontSize={"2rem"} color={"gray"}>
+        There are no products matching the criteria you are looking for.
+      </Typography>
+      <SentimentVeryDissatisfiedIcon sx={{ width: "5rem", height: "5rem" }} />
+    </Box>
+  );
+
   const productItems = productList.map((item) => (
     <ProductItem product={item} key={item.id} />
   ));
 
+  const skeletonArray = [1, 2, 3, 4, 5, 6];
+
+  const renderSkeletonGrid = skeletonArray.map((item) => {
+    return (
+      <div key={item} className="product">
+        <div className="product-header">
+          <Skeleton variant="rectangular" width={"100%"} height={250} />
+        </div>
+        <div className="product-details">
+          <p>
+            <Skeleton
+              animation="wave"
+              height={30}
+              width="80%"
+              style={{ marginBottom: 6 }}
+            />
+          </p>
+          <p className="product-price">
+            <Skeleton animation="wave" height={40} width="20%" />
+          </p>
+        </div>
+      </div>
+    );
+  });
+
   return (
     <section className="products-container">
-      <ul className="product-list">{productItems}</ul>
+      {isLoading ? (
+        <ul className="product-list">{renderSkeletonGrid}</ul>
+      ) : (
+        <ul className="product-list">{productItems}</ul>
+      )}
+      {!isLoading && productList.length === 0 && renderNoItem}
     </section>
   );
 };
