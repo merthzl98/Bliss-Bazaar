@@ -40,10 +40,11 @@ type TextInputProps = {
   label: string;
   maxRows: number | null;
   startIcon: React.ReactElement<SvgIconProps>;
+  type: string;
 };
 
 const TextInput = (props: TextInputProps) => {
-  const { width, value, setValue, label, maxRows, startIcon } = props;
+  const { width, value, setValue, label, maxRows, startIcon, type } = props;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -59,6 +60,7 @@ const TextInput = (props: TextInputProps) => {
         {label}
       </InputLabel>
       <BootstrapInput
+        type={type}
         onChange={handleChange}
         value={value}
         multiline={!!maxRows}

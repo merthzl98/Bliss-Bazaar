@@ -149,7 +149,14 @@ const Products = () => {
         orderValue={orderValue}
         setOrderValue={setOrderValue}
       />
-      <Box sx={{ display: "flex", gap: "3rem", pt: 5 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          gap: "3rem",
+          pt: 5,
+        }}
+      >
         <SideFilters
           colorList={colorList}
           setColorList={setColorList}
