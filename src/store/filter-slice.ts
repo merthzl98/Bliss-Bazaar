@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TEXTURE_LIST } from "../api/mock-data";
 
-export type FilterInitialState = {
+type FilterInitialState = {
   priceValues: number[];
   textureList: Texture[];
 };
@@ -18,7 +18,7 @@ export const filterSlice = createSlice({
     applyPriceFilter: (state, action: PayloadAction<number[]>) => {
       state.priceValues = action.payload;
     },
-    setTextureList:  (state, action: PayloadAction<Texture[]>) => {
+    setTextureList: (state, action: PayloadAction<Texture[]>) => {
       state.textureList = action.payload;
     },
   },

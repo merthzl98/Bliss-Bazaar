@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MdChevronLeft } from "react-icons/md";
+import { Box } from "@mui/material";
 
 import "./HeadFilters.scss";
 import { CATEGORY_LIST } from "../../api/mock-data";
@@ -50,8 +51,16 @@ const HeadFilters = ({
         </div>
         <ul className="category-list">{categoryList}</ul>
       </div>
-      <div className="second-row">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: "space-between",
+          gap: "2rem",
+        }}
+      >
         <TextInput
+          type="text"
           width="30rem"
           value={searchValue}
           setValue={setSearchValue}
@@ -70,7 +79,7 @@ const HeadFilters = ({
           value={orderValue}
           setValue={setOrderValue}
         />
-      </div>
+      </Box>
     </section>
   );
 };
