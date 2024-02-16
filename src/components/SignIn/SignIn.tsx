@@ -8,12 +8,12 @@ import Modal from "../UI/Modal/Modal";
 import TextInput from "../UI/TextInput/TextInput";
 import getToken from "../../api/auth-service";
 import { getLogin } from "../../store/user-slice";
-import { setHasError } from "../../store/error-slice";
 import { RootState } from "../../store";
 import { setIsShownLoginModal } from "../../store/ui-slice";
 import { Typography } from "@mui/material";
+import { setIsNotified } from "../../store/notify-slice";
 
-const SignUp = () => {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isNotValid, setIsNotValid] = useState(false);
@@ -47,9 +47,10 @@ const SignUp = () => {
         }
       } catch (err: any) {
         dispatch(
-          setHasError({
-            hasError: true,
+          setIsNotified({
+            isNotified: true,
             message: err.response.data.error.message,
+            severity: "error",
           })
         );
       }
@@ -62,7 +63,7 @@ const SignUp = () => {
     <Modal
       onOpen={isShownModal}
       onClose={() => dispatch(setIsShownLoginModal(false))}
-      title="Sign Up"
+      title="Sign In"
       onRequest={handleLogin}
       confirmText="Login"
     >
@@ -94,4 +95,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

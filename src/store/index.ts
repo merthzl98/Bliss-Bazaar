@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import FilterReducer from "./filter-slice";
 import UserReducer from "./user-slice";
-import ErrorReducer from "./error-slice";
+import NotifyReducer from "./notify-slice";
 import UIReducer from "./ui-slice";
 import CartReducer from "./cart-slice";
 
@@ -10,7 +10,7 @@ export const store = configureStore({
   reducer: {
     filter: FilterReducer,
     user: UserReducer,
-    error: ErrorReducer,
+    notify: NotifyReducer,
     ui: UIReducer,
     cart: CartReducer,
   },

@@ -16,6 +16,9 @@ export const uiSlice = createSlice({
   reducers: {
     setIsShownLoginModal: (state, action: PayloadAction<boolean>) => {
       state.isShownLoginModal = action.payload;
+      if (!!state.isShownCartModal) {
+        state.isShownCartModal = !state.isShownCartModal;
+      }
     },
     setIsShownCartModal: (state, action: PayloadAction<boolean>) => {
       state.isShownCartModal = action.payload;

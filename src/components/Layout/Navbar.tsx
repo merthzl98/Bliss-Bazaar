@@ -1,29 +1,44 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
-import { TbShoppingCart } from "react-icons/tb";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { useDispatch, useSelector } from "react-redux";
 import { Menu, MenuItem } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
 
 import "./Navbar.scss";
 import bbLogo from "../../assets/logo/bb-logo.png";
-
 import { RootState } from "../../store";
 import { getLogout } from "../../store/user-slice";
 import {
   setIsShownCartModal,
   setIsShownLoginModal,
 } from "../../store/ui-slice";
+import { setIsNotified } from "../../store/notify-slice";
+
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+    fontSize: "1.25rem",
+  },
+}));
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const user = useSelector((state: RootState) => state.user);
+  const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { totalQuantity, products } = cart;
 
   const open = !!anchorEl;
 
@@ -55,7 +70,15 @@ const Navbar = () => {
   };
 
   const handleClickCart = () => {
-    dispatch(setIsShownCartModal(true));
+    !!products.length
+      ? dispatch(setIsShownCartModal(true))
+      : dispatch(
+          setIsNotified({
+            isNotified: true,
+            message: "Your Cart is empty.",
+            severity: "warning",
+          })
+        );
   };
 
   const menuContent = user.hasLoggedIn ? (
@@ -111,10 +134,13 @@ const Navbar = () => {
             </Link>
           </li>
           <span onClick={handleClickAvatar}>
-            <PermIdentityIcon />
+            <PersonIcon />
           </span>
+
           <span onClick={handleClickCart}>
-            <TbShoppingCart />
+            <StyledBadge badgeContent={totalQuantity} color="secondary">
+              <ShoppingCartIcon />
+            </StyledBadge>
           </span>
 
           <span className="menu-icon">

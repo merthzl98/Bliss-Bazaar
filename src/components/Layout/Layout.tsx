@@ -4,17 +4,17 @@ import { useSelector } from "react-redux";
 import "./Layout.scss";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Error from "../UI/Error/Error";
+import Notify from "../UI/Notify/Notify";
 import { RootState } from "../../store";
 import Cart from "../Cart/Cart";
-import SignUp from "../SignUp/SignUp";
+import SignUp from "../SignIn/SignIn";
 
 type LayoutProps = {
   children: ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const hasError = useSelector((state: RootState) => state.error.hasError);
+  const isNotified = useSelector((state: RootState) => state.notify.isNotified);
   const ui = useSelector((state: RootState) => state.ui);
 
   const { isShownCartModal, isShownLoginModal } = ui;
@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Navbar />
       {children}
       <Footer />
-      {hasError && <Error />}
+      {isNotified && <Notify />}
       {isShownCartModal && <Cart />}
       {isShownLoginModal && <SignUp />}
     </div>

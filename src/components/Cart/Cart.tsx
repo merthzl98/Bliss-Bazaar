@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Avatar,
   Box,
@@ -13,10 +14,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../../store";
 import Modal from "../UI/Modal/Modal";
-import { setIsShownCartModal } from "../../store/ui-slice";
+import {
+  setIsShownCartModal,
+  setIsShownLoginModal,
+} from "../../store/ui-slice";
 import Button from "../UI/Button/Button";
 import { addToCart, removeFromCart } from "../../store/cart-slice";
 import { CartItem } from "../../models/cart";
+import { setIsNotified } from "../../store/notify-slice";
 
 const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -31,13 +36,20 @@ const Demo = styled("div")(({ theme }) => ({
 }));
 
 const Cart = () => {
-  const cart = useSelector((state: RootState) => state.cart);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const products = useSelector((state: RootState) => state.cart.products);
   const isShownModal = useSelector(
     (state: RootState) => state.ui.isShownCartModal
   );
+  const hasLoggedIn = useSelector((state: RootState) => state.user.hasLoggedIn);
   const dispatch = useDispatch();
 
-  const { products, totalQuantity } = cart;
+  useEffect(() => {
+    let sumPrice = 0;
+    products.forEach((product) => (sumPrice += product.totalPrice));
+    setTotalAmount(sumPrice);
+    !products.length && dispatch(setIsShownCartModal(false));
+  }, [products]);
 
   const handleCloseCart = () => {
     dispatch(setIsShownCartModal(false));
@@ -94,30 +106,54 @@ const Cart = () => {
     );
   });
 
+  const handleClickBuy = () => {
+    if (hasLoggedIn) {
+      handleCloseCart();
+      dispatch(
+        setIsNotified({
+          isNotified: true,
+          message: "Your order has been received",
+          severity: "success",
+        })
+      );
+    } else {
+      dispatch(setIsShownLoginModal(true));
+    }
+  };
+
   return (
     <Modal
       onOpen={isShownModal}
       title="My Cart"
       onClose={handleCloseCart}
-      onRequest={() => console.log("clicked cart button ")}
+      onRequest={handleClickBuy}
       confirmText="Buy Now"
     >
-      {!!products.length ? (
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={12}>
-            <Demo>
-              <List dense={true}>{cartList}</List>
-              <Typography py={2} fontSize={20}>
-                {totalQuantity}
-              </Typography>
-            </Demo>
-          </Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={12}>
+          <Demo>
+            <List dense={true}>{cartList}</List>
+          </Demo>
+          <Box sx={{ display: "flex", gap: "1rem", justifyContent: "right" }}>
+            <Typography
+              textAlign={"right"}
+              fontWeight={500}
+              py={1}
+              fontSize={20}
+            >
+              Total Price :
+            </Typography>
+            <Typography
+              textAlign={"right"}
+              fontWeight={600}
+              py={1}
+              fontSize={20}
+            >
+              ${totalAmount}{" "}
+            </Typography>
+          </Box>
         </Grid>
-      ) : (
-        <Typography py={2} width={500} fontSize={20}>
-          Your Cart is empty.
-        </Typography>
-      )}
+      </Grid>
     </Modal>
   );
 };
