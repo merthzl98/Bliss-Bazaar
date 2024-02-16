@@ -22,9 +22,17 @@ type ModalProps = {
   title: string;
   children: ReactNode;
   onRequest: () => void;
+  confirmText: string;
 };
 
-const Modal = ({ onOpen, onClose, title, children, onRequest }: ModalProps) => {
+const Modal = ({
+  onOpen,
+  onClose,
+  title,
+  children,
+  onRequest,
+  confirmText,
+}: ModalProps) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -42,7 +50,7 @@ const Modal = ({ onOpen, onClose, title, children, onRequest }: ModalProps) => {
       <DialogActions className="modal-actions">
         <Button
           onClick={onRequest}
-          text="Login"
+          text={confirmText}
           fontSize="1.5rem"
           width="10rem"
           fontWeight="1.5rem"

@@ -1,25 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type UIInitialState = {
-  hasError: boolean;
-  message: string;
+type ModalInitialState = {
+  isShownLoginModal: boolean;
+  isShownCartModal: boolean;
 };
 
-const initialState: UIInitialState = {
-  hasError: false,
-  message: "",
+const initialState: ModalInitialState = {
+  isShownLoginModal: false,
+  isShownCartModal: false,
 };
 
 export const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    setHasError: (state, action: PayloadAction<UIInitialState>) => {
-      state.hasError = action.payload.hasError;
-      state.message = action.payload.message;
+    setIsShownLoginModal: (state, action: PayloadAction<boolean>) => {
+      state.isShownLoginModal = action.payload;
+    },
+    setIsShownCartModal: (state, action: PayloadAction<boolean>) => {
+      state.isShownCartModal = action.payload;
     },
   },
 });
 
-export const { setHasError } = uiSlice.actions;
+export const { setIsShownLoginModal, setIsShownCartModal } = uiSlice.actions;
 export default uiSlice.reducer;
