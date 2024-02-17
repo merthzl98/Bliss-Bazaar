@@ -88,7 +88,7 @@ const Navbar = () => {
 
   const menuContent = user.hasLoggedIn ? (
     <Menu
-      id="basic-menu"
+      disableScrollLock
       anchorEl={anchorEl}
       open={open}
       onClose={handleCloseMenu}
@@ -105,7 +105,7 @@ const Navbar = () => {
     </Menu>
   ) : (
     <Menu
-      id="basic-menu"
+      disableScrollLock
       anchorEl={anchorEl}
       open={open}
       onClose={handleCloseMenu}

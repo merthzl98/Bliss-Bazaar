@@ -38,13 +38,13 @@ type TextInputProps = {
   value: string;
   setValue: (value: string) => void;
   label: string;
-  maxRows: number | null;
+  maxRows?: number;
   startIcon: React.ReactElement<SvgIconProps>;
   type: string;
 };
 
 const TextInput = (props: TextInputProps) => {
-  const { width, value, setValue, label, maxRows, startIcon, type } = props;
+  const { width, value, setValue, label, maxRows = 1, startIcon, type } = props;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -63,8 +63,8 @@ const TextInput = (props: TextInputProps) => {
         type={type}
         onChange={handleChange}
         value={value}
-        multiline={!!maxRows}
-        maxRows={maxRows ?? 1}
+        multiline={maxRows > 1}
+        maxRows={maxRows}
         size="small"
         startAdornment={
           <InputAdornment position="start">{startIcon}</InputAdornment>

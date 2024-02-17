@@ -82,7 +82,6 @@ const SignIn = () => {
         value={email}
         setValue={setEmail}
         label="Email"
-        maxRows={null}
         startIcon={<AccountCircleIcon />}
       />
 
@@ -92,7 +91,6 @@ const SignIn = () => {
         value={password}
         setValue={setPassword}
         label="Password"
-        maxRows={null}
         startIcon={<LockIcon />}
       />
       {isNotValid && (

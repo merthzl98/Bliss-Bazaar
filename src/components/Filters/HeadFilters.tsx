@@ -64,7 +64,6 @@ const HeadFilters = ({
           value={searchValue}
           setValue={setSearchValue}
           label="Search"
-          maxRows={null}
           startIcon={
             <SearchIcon
               sx={{ color: "#2d2e32", width: "2rem", height: "2rem" }}

@@ -42,6 +42,7 @@ const Modal = ({
       open={onOpen}
       onClose={onClose}
       PaperComponent={MyPaper}
+      disableScrollLock
     >
       <div className="modal-header">
         <DialogTitle className="modal-title">{title}</DialogTitle>
