@@ -19,7 +19,7 @@ import {
   setIsShownLoginModal,
 } from "../../store/ui-slice";
 import Button from "../UI/Button/Button";
-import { addToCart, removeFromCart } from "../../store/cart-slice";
+import { addToCart, removeFromCart, resetCart } from "../../store/cart-slice";
 import { CartItem } from "../../models/cart";
 import { setIsNotified } from "../../store/notify-slice";
 
@@ -45,10 +45,13 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let sumPrice = 0;
-    products.forEach((product) => (sumPrice += product.totalPrice));
-    setTotalAmount(sumPrice);
-    !products.length && dispatch(setIsShownCartModal(false));
+    if (!!products.length) {
+      let sumPrice = 0;
+      products.forEach((product) => (sumPrice += product.totalPrice));
+      setTotalAmount(sumPrice);
+    } else {
+      dispatch(setIsShownCartModal(false));
+    }
   }, [products]);
 
   const handleCloseCart = () => {
@@ -108,6 +111,7 @@ const Cart = () => {
 
   const handleClickBuy = () => {
     if (hasLoggedIn) {
+      dispatch(resetCart());
       handleCloseCart();
       dispatch(
         setIsNotified({

@@ -43,11 +43,17 @@ export const cartSlice = createSlice({
         state.products = state.products.filter((item) => item.id !== id);
       } else {
         existingItem!.quantity--;
-        existingItem!.totalPrice = existingItem!.totalPrice - existingItem!.price;
+        existingItem!.totalPrice =
+          existingItem!.totalPrice - existingItem!.price;
       }
+    },
+
+    resetCart: (state) => {
+      state.products = [];
+      state.totalQuantity = 0;
     },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, resetCart } = cartSlice.actions;
 export default cartSlice.reducer;
