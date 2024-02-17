@@ -31,16 +31,25 @@ const SignIn = () => {
     return password.length >= 8;
   };
 
+  const validateAdmin = (email: string, password: string): boolean => {
+    // Mock control for admin account
+    const isAdmin = email.includes("admin") && password.includes("admin");
+    return isAdmin;
+  };
+
   const handleLogin = async () => {
     const formIsValid = validateEmail(email) && validatePassword(password);
     if (formIsValid) {
       try {
         const response: AxiosResponse = await getToken(email, password);
         if (response.status === 200) {
+          const isAdmin = validateAdmin(email, password);
+          const userLevel = isAdmin ? "admin" : "user";
           dispatch(
             getLogin({
               hasLoggedIn: true,
               token: response.data.idToken,
+              userLevel: userLevel,
             })
           );
           dispatch(setIsShownLoginModal(false));

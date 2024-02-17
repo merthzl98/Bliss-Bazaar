@@ -10,4 +10,5 @@ export type Product = {
   size: string;
   isBest: boolean;
   color: string;
+  isFaved: boolean;
 };

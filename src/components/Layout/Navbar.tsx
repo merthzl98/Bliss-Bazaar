@@ -20,6 +20,8 @@ import {
   setIsShownLoginModal,
 } from "../../store/ui-slice";
 import { setIsNotified } from "../../store/notify-slice";
+import { resetCart } from "../../store/cart-slice";
+import { resetProducts } from "../../store/interactions-slice";
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -60,7 +62,10 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    dispatch(getLogout({ hasLoggedIn: false, token: "" }));
+    navigate("/");
+    dispatch(resetProducts());
+    dispatch(resetCart());
+    dispatch(getLogout({ hasLoggedIn: false, token: "", userLevel: "" }));
     handleCloseMenu();
   };
 

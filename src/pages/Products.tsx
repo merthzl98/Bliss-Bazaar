@@ -4,11 +4,10 @@ import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 
 import ProductList from "../components/ProductList/ProductList";
-import { COLOR_LIST, PRODUCT_LIST } from "../api/mock-data";
+import { COLOR_LIST, SORT_LIST } from "../api/mock-data";
 import { Product } from "../models/product";
 import HeadFilters from "../components/Filters/HeadFilters";
 import SideFilters from "../components/Filters/SideFilters";
-import { sortConfig } from "../static/config";
 import { RootState } from "../store";
 
 const Products = () => {
@@ -19,12 +18,15 @@ const Products = () => {
     queryParams.get("category")
   );
   const [productList, setProductList] = useState<Product[]>([]);
-  const [orderValue, setOrderValue] = useState<string>(sortConfig[0].value);
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [orderValue, setOrderValue] = useState(SORT_LIST[0].value);
+  const [searchValue, setSearchValue] = useState("");
   const [colorList, setColorList] = useState(COLOR_LIST);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isCalledSearch, setIsCalledSearch] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isCalledSearch, setIsCalledSearch] = useState(false);
   const filterValues = useSelector((state: RootState) => state.filter);
+  const allProducts = useSelector(
+    (state: RootState) => state.interactions.allProducts
+  );
 
   const { priceValues, textureList } = filterValues;
 
@@ -37,7 +39,7 @@ const Products = () => {
 
   useEffect(() => {
     !isLoading && setIsLoading(true);
-    let result = PRODUCT_LIST.filter(
+    let result = allProducts.filter(
       (product) =>
         (product.category === selectedCategory || selectedCategory === "all") &&
         product

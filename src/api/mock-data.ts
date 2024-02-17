@@ -33,6 +33,7 @@ export const PRODUCT_LIST = [
     size: "150cm x 70cm",
     isBest: true,
     color: "white",
+    isFaved: false,
   },
   {
     id: 2,
@@ -47,6 +48,7 @@ export const PRODUCT_LIST = [
     size: "20xm x 10cm",
     isBest: false,
     color: "white",
+    isFaved: false,
   },
   {
     id: 3,
@@ -61,6 +63,7 @@ export const PRODUCT_LIST = [
     size: "15cm x 15cm",
     isBest: true,
     color: "blue",
+    isFaved: false,
   },
   {
     id: 4,
@@ -75,6 +78,7 @@ export const PRODUCT_LIST = [
     size: "250cm x 60cm",
     isBest: false,
     color: "brown",
+    isFaved: false,
   },
   {
     id: 5,
@@ -89,6 +93,7 @@ export const PRODUCT_LIST = [
     size: "20cm x 20cm",
     isBest: false,
     color: "brown",
+    isFaved: false,
   },
   {
     id: 6,
@@ -103,6 +108,7 @@ export const PRODUCT_LIST = [
     size: "10cm x 5cm",
     isBest: true,
     color: "brown",
+    isFaved: false,
   },
   {
     id: 7,
@@ -117,6 +123,7 @@ export const PRODUCT_LIST = [
     size: "20cm x 20cm",
     isBest: false,
     color: "black",
+    isFaved: false,
   },
   {
     id: 8,
@@ -131,6 +138,7 @@ export const PRODUCT_LIST = [
     size: "60cm x 20cm",
     isBest: true,
     color: "black",
+    isFaved: false,
   },
   {
     id: 9,
@@ -145,6 +153,7 @@ export const PRODUCT_LIST = [
     size: "45cm x 15cm",
     isBest: false,
     color: "black",
+    isFaved: false,
   },
   {
     id: 10,
@@ -159,6 +168,7 @@ export const PRODUCT_LIST = [
     size: "60cm x 40cm",
     isBest: false,
     color: "gray",
+    isFaved: false,
   },
   {
     id: 11,
@@ -173,6 +183,7 @@ export const PRODUCT_LIST = [
     size: "20cm x 20cm",
     isBest: true,
     color: "black",
+    isFaved: false,
   },
   {
     id: 12,
@@ -187,6 +198,7 @@ export const PRODUCT_LIST = [
     size: "15cm x 15cm",
     isBest: false,
     color: "yellow",
+    isFaved: false,
   },
   {
     id: 13,
@@ -201,6 +213,7 @@ export const PRODUCT_LIST = [
     size: "20cm x 10cm",
     isBest: true,
     color: "white",
+    isFaved: false,
   },
   {
     id: 14,
@@ -215,6 +228,7 @@ export const PRODUCT_LIST = [
     size: "60cm x 30cm",
     isBest: false,
     color: "brown",
+    isFaved: false,
   },
   {
     id: 15,
@@ -229,6 +243,7 @@ export const PRODUCT_LIST = [
     size: "65cm x 35cm",
     isBest: false,
     color: "brown",
+    isFaved: false,
   },
   {
     id: 16,
@@ -243,6 +258,7 @@ export const PRODUCT_LIST = [
     size: "15cm x 10cm",
     isBest: false,
     color: "black",
+    isFaved: false,
   },
   {
     id: 17,
@@ -257,6 +273,7 @@ export const PRODUCT_LIST = [
     size: "25cm x 15cm",
     isBest: false,
     color: "gray",
+    isFaved: false,
   },
   {
     id: 18,
@@ -271,6 +288,7 @@ export const PRODUCT_LIST = [
     size: "20cm x 15cm",
     isBest: true,
     color: "black",
+    isFaved: false,
   },
   {
     id: 19,
@@ -285,6 +303,7 @@ export const PRODUCT_LIST = [
     size: "60cm x 30cm",
     isBest: false,
     color: "black",
+    isFaved: false,
   },
   {
     id: 20,
@@ -299,6 +318,7 @@ export const PRODUCT_LIST = [
     size: "10cm x 5cm",
     isBest: false,
     color: "white",
+    isFaved: false,
   },
 ];
 
@@ -317,8 +337,8 @@ export const TEXTURE_LIST = [
   { id: 2, title: "Wood", status: true },
   { id: 3, title: "Cotton", status: true },
   { id: 4, title: "Liquid", status: true },
-  { id: 5, title: "Metal", status: false },
-  { id: 6, title: "Ceramic", status: false },
+  { id: 5, title: "Metal", status: true },
+  { id: 6, title: "Ceramic", status: true },
 ];
 
 export const COLOR_LIST = [
@@ -326,6 +346,13 @@ export const COLOR_LIST = [
   { id: 2, title: "White", status: true },
   { id: 3, title: "Brown", status: true },
   { id: 4, title: "Gray", status: true },
-  { id: 5, title: "Blue", status: false },
-  { id: 6, title: "Yellow", status: false },
+  { id: 5, title: "Blue", status: true },
+  { id: 6, title: "Yellow", status: true },
+];
+
+export const SORT_LIST = [
+  { id: 1, value: "featured", text: "Featured" },
+  { id: 2, value: "increasing", text: "Price: Low to High" },
+  { id: 3, value: "decreasing", text: "Price: High to Low" },
+  { id: 4, value: "best", text: "Best Sellers" },
 ];

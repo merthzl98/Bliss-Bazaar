@@ -11,20 +11,25 @@ import { setIsShownLoginModal } from "../../store/ui-slice";
 import Button from "../UI/Button/Button";
 import { addToCart } from "../../store/cart-slice";
 import { CartItem } from "../../models/cart";
+import { toggleFav } from "../../store/interactions-slice";
 
 type ProductItemProps = {
   product: Product;
 };
 
 const ProductItem = ({ product }: ProductItemProps) => {
-  const [isFaved, setIsFaved] = useState(false);
+  const [isFaved, setIsFaved] = useState(product.isFaved);
   const hasLoggedIn = useSelector((state: RootState) => state.user.hasLoggedIn);
+
   const dispatch = useDispatch();
 
   const handleClickFav = () => {
-    hasLoggedIn
-      ? setIsFaved((prevState) => !prevState)
-      : dispatch(setIsShownLoginModal(true));
+    if (hasLoggedIn) {
+      dispatch(toggleFav(product.id));
+      setIsFaved((prevState) => !prevState);
+    } else {
+      dispatch(setIsShownLoginModal(true));
+    }
   };
 
   const handleClickAdd = () => {

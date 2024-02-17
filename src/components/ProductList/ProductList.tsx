@@ -10,9 +10,16 @@ type ListProps = {
   productList: Product[];
   isLoading: boolean;
   setIsLoading: (value: boolean) => void;
+  fromFavList?: boolean;
 };
 
-const ProductList = ({ productList, isLoading, setIsLoading }: ListProps) => {
+const ProductList = ({
+  fromFavList = false,
+  productList,
+  isLoading,
+  setIsLoading,
+}: ListProps) => {
+  // Loading Side Effect  was added to make it look like a response is awaited from the service.
   useEffect(() => {
     setTimeout(() => {
       isLoading && setIsLoading(false);
@@ -41,7 +48,9 @@ const ProductList = ({ productList, isLoading, setIsLoading }: ListProps) => {
     <ProductItem product={item} key={item.id} />
   ));
 
-  const skeletonArray = [1, 2, 3, 4, 5, 6];
+  const skeletonArray = fromFavList
+    ? [1, 2, 3, 4, 5, 6, 7, 8]
+    : [1, 2, 3, 4, 5, 6];
 
   const renderSkeletonGrid = skeletonArray.map((item) => {
     return (
@@ -66,12 +75,14 @@ const ProductList = ({ productList, isLoading, setIsLoading }: ListProps) => {
     );
   });
 
+  const listClass = fromFavList ? "fav-list" : "product-list";
+
   return (
     <section className="products-container">
       {isLoading ? (
-        <ul className="product-list">{renderSkeletonGrid}</ul>
+        <ul className={listClass}>{renderSkeletonGrid}</ul>
       ) : (
-        <ul className="product-list">{productItems}</ul>
+        <ul className={listClass}>{productItems}</ul>
       )}
       {!isLoading && productList.length === 0 && renderNoItem}
     </section>

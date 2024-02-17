@@ -3,9 +3,8 @@ import { MdChevronLeft } from "react-icons/md";
 import { Box } from "@mui/material";
 
 import "./HeadFilters.scss";
-import { CATEGORY_LIST } from "../../api/mock-data";
+import { CATEGORY_LIST, SORT_LIST } from "../../api/mock-data";
 import SelectInput from "../UI/SelectInput/SelectInput";
-import { sortConfig } from "../../static/config";
 import TextInput from "../UI/TextInput/TextInput";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -73,7 +72,7 @@ const HeadFilters = ({
           }
         />
         <SelectInput
-          data={sortConfig}
+          data={SORT_LIST}
           width="20rem"
           label="Sort by"
           value={orderValue}

@@ -5,6 +5,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme, styled } from "@mui/material/styles";
 import { DialogActions, Paper } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 import "./Modal.scss";
 import Button from "../Button/Button";
@@ -44,6 +45,9 @@ const Modal = ({
     >
       <div className="modal-header">
         <DialogTitle className="modal-title">{title}</DialogTitle>
+        <span className="close-icon" onClick={onClose}>
+          <CloseIcon sx={{ width: "2rem", height: "2rem" }} />
+        </span>
       </div>
 
       <DialogContent className="modal-content">{children}</DialogContent>

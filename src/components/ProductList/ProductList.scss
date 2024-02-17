@@ -5,6 +5,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3rem;
   }
+  .fav-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 990px) {
@@ -12,8 +17,10 @@
     .product-list {
       grid-template-columns: 1fr 1fr;
     }
+    .fav-list {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
- 
 }
 
 @media (max-width: 650px) {
@@ -21,6 +28,8 @@
     .product-list {
       grid-template-columns: 1fr;
     }
+    .fav-list {
+      grid-template-columns: 1fr 1fr;
+    }
   }
- 
 }
