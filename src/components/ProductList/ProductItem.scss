@@ -57,11 +57,20 @@
     }
   }
 
-  .count-input {
-    // position: absolute !important;
-    // bottom: 1rem;
-    // right: 6rem;
-    width: 8rem !important;
-    height: 3rem;
+  .delete-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: #ffffff49 !important;
+    z-index: 150;
+    .filled-icon {
+      transition: all 300ms ease-in-out;
+      color: #2d2e32;
+      width: 2rem;
+      height: 2rem;
+      &:hover {
+        color: red;
+      }
+    }
   }
 }

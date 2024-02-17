@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box, Fab } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { Product } from "../../models/product";
 import "./ProductItem.scss";
@@ -11,7 +12,7 @@ import { setIsShownLoginModal } from "../../store/ui-slice";
 import Button from "../UI/Button/Button";
 import { addToCart } from "../../store/cart-slice";
 import { CartItem } from "../../models/cart";
-import { toggleFav } from "../../store/interactions-slice";
+import { removeProduct, toggleFav } from "../../store/interactions-slice";
 
 type ProductItemProps = {
   product: Product;
@@ -19,9 +20,10 @@ type ProductItemProps = {
 
 const ProductItem = ({ product }: ProductItemProps) => {
   const [isFaved, setIsFaved] = useState(product.isFaved);
-  const hasLoggedIn = useSelector((state: RootState) => state.user.hasLoggedIn);
-
+  const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
+
+  const { hasLoggedIn, userLevel } = user;
 
   const handleClickFav = () => {
     if (hasLoggedIn) {
@@ -43,6 +45,10 @@ const ProductItem = ({ product }: ProductItemProps) => {
     };
 
     dispatch(addToCart(cartItem));
+  };
+
+  const handleClickDelete = () => {
+    dispatch(removeProduct(product.id));
   };
 
   return (
@@ -80,6 +86,11 @@ const ProductItem = ({ product }: ProductItemProps) => {
           <FavoriteBorderIcon className="outlined-icon" />
         )}
       </Fab>
+      {userLevel === "admin" && (
+        <Fab onClick={handleClickDelete} size="small" className="delete-icon">
+          <DeleteIcon className="filled-icon" />
+        </Fab>
+      )}
     </div>
   );
 };

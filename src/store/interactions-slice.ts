@@ -29,8 +29,16 @@ export const interactionsSlice = createSlice({
     resetProducts: (state) => {
       state.allProducts = PRODUCT_LIST;
     },
+
+    removeProduct: (state, action: PayloadAction<number>) => {
+      state.allProducts = state.allProducts.filter(
+        (product) => product.id !== action.payload
+      );
+      localStorage.setItem("allProducts", JSON.stringify(state.allProducts));
+    },
   },
 });
 
-export const { toggleFav, resetProducts } = interactionsSlice.actions;
+export const { toggleFav, resetProducts, removeProduct } =
+  interactionsSlice.actions;
 export default interactionsSlice.reducer;

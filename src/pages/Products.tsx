@@ -38,7 +38,6 @@ const Products = () => {
   }, [queryParams]);
 
   useEffect(() => {
-    !isLoading && setIsLoading(true);
     let result = allProducts.filter(
       (product) =>
         (product.category === selectedCategory || selectedCategory === "all") &&
@@ -50,10 +49,10 @@ const Products = () => {
     result = filterByPriceRange(result);
     result = filterByTexture(result);
     result = filterByColor(result);
-    console.log({ result });
 
     setProductList(result);
   }, [
+    allProducts,
     selectedCategory,
     isCalledSearch,
     orderValue,
@@ -71,6 +70,18 @@ const Products = () => {
       clearTimeout(searchDelay);
     };
   }, [searchValue]);
+
+  // Loading Side Effect  was added to make it look like a response is awaited from the service.
+  useEffect(() => {
+    !isLoading && setIsLoading(true);
+  }, [
+    selectedCategory,
+    isCalledSearch,
+    orderValue,
+    priceValues,
+    textureList,
+    colorList,
+  ]);
 
   const filterBySearch = (result: Product[]) => {
     let searchedResult: Product[] = [];

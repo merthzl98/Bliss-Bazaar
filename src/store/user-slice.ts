@@ -18,11 +18,15 @@ export const userSlice = createSlice({
   reducers: {
     getLogin: (state, action: PayloadAction<UserInitialState>) => {
       state.hasLoggedIn = action.payload.hasLoggedIn;
+      state.token = action.payload.token;
+      state.userLevel = action.payload.userLevel;
       localStorage.setItem("token", action.payload.token);
       localStorage.setItem("userLevel", action.payload.userLevel);
     },
     getLogout: (state, action: PayloadAction<UserInitialState>) => {
       state.hasLoggedIn = action.payload.hasLoggedIn;
+      state.token = "";
+      state.userLevel = "";
       localStorage.clear();
     },
   },

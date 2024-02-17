@@ -23,7 +23,7 @@ const ProductList = ({
   useEffect(() => {
     setTimeout(() => {
       isLoading && setIsLoading(false);
-    }, 750);
+    }, 500);
   }, [isLoading]);
 
   const renderNoItem = (
@@ -68,7 +68,7 @@ const ProductList = ({
             />
           </p>
           <p className="product-price">
-            <Skeleton animation="wave" height={40} width="20%" />
+            <Skeleton animation="wave" height={40} width="100%" />
           </p>
         </div>
       </div>
