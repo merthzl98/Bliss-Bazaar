@@ -10,6 +10,7 @@ import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import "./Navbar.scss";
 import bbLogo from "../../assets/logo/bb-logo.png";
@@ -86,6 +87,11 @@ const Navbar = () => {
         );
   };
 
+  const handleNavigateDeletedList = () => {
+    navigate("deleted");
+    handleCloseMenu();
+  };
+
   const menuContent = user.hasLoggedIn ? (
     <Menu
       disableScrollLock
@@ -99,6 +105,15 @@ const Navbar = () => {
       <MenuItem sx={{ fontSize: "1.5rem" }} onClick={handleNavigateFavs}>
         <FavoriteIcon sx={{ mr: 1 }} /> My Favs
       </MenuItem>
+      {user.userLevel === "admin" && (
+        <MenuItem
+          sx={{ fontSize: "1.5rem" }}
+          onClick={handleNavigateDeletedList}
+        >
+          <DeleteIcon sx={{ mr: 1 }} /> Deleted List
+        </MenuItem>
+      )}
+
       <MenuItem sx={{ fontSize: "1.5rem" }} onClick={handleLogout}>
         <LogoutIcon sx={{ mr: 1 }} /> Logout
       </MenuItem>

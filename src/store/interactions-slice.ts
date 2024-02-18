@@ -6,10 +6,11 @@ type InteractionsInitialState = {
   allProducts: Product[];
 };
 
-const storedItems = localStorage.getItem("allProducts");
+const storedAllItems = localStorage.getItem("allProducts");
+const storedDeletedItems = localStorage.getItem("deletedProducts");
 
 const initialState: InteractionsInitialState = {
-  allProducts: storedItems ? JSON.parse(storedItems) : PRODUCT_LIST,
+  allProducts: storedAllItems ? JSON.parse(storedAllItems) : PRODUCT_LIST,
 };
 
 export const interactionsSlice = createSlice({
@@ -30,15 +31,18 @@ export const interactionsSlice = createSlice({
       state.allProducts = PRODUCT_LIST;
     },
 
-    removeProduct: (state, action: PayloadAction<number>) => {
-      state.allProducts = state.allProducts.filter(
-        (product) => product.id !== action.payload
+    toggleDelete: (state, action: PayloadAction<number>) => {
+      const deletedIndex = state.allProducts.findIndex(
+        (product) => product.id === action.payload
       );
+      state.allProducts[deletedIndex].isDeleted =
+        !state.allProducts[deletedIndex].isDeleted;
+
       localStorage.setItem("allProducts", JSON.stringify(state.allProducts));
     },
   },
 });
 
-export const { toggleFav, resetProducts, removeProduct } =
+export const { toggleFav, resetProducts, toggleDelete } =
   interactionsSlice.actions;
 export default interactionsSlice.reducer;

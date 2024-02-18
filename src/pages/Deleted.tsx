@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
 
-import ProductList from "../components/ProductList/ProductList";
-import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { Product } from "../models/product";
 import { scrollToTop } from "../utils";
+import ProductList from "../components/ProductList/ProductList";
+import { Product } from "../models/product";
 
-const Favs = () => {
-  const [favList, setFavList] = useState<Product[]>([]);
+const Deleted = () => {
+  const [deletedList, setDeletedList] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const allProducts = useSelector(
     (state: RootState) => state.interactions.allProducts
@@ -21,10 +21,8 @@ const Favs = () => {
   }, []);
 
   useEffect(() => {
-    const favedList = allProducts.filter(
-      (product) => product.isFaved && !product.isDeleted
-    );
-    setFavList(favedList);
+    const deletedItems = allProducts.filter((product) => product.isDeleted);
+    setDeletedList(deletedItems);
   }, [allProducts]);
 
   return (
@@ -36,16 +34,16 @@ const Favs = () => {
         component={"h2"}
         pb={8}
       >
-        FAVORITES
+        DELETED LIST
       </Typography>
       <ProductList
         isLoading={isLoading}
         setIsLoading={setIsLoading}
-        productList={favList}
+        productList={deletedList}
         fromPureList
       />
     </main>
   );
 };
 
-export default Favs;
+export default Deleted;

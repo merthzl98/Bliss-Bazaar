@@ -11,4 +11,5 @@ export type Product = {
   isBest: boolean;
   color: string;
   isFaved: boolean;
+  isDeleted: boolean;
 };

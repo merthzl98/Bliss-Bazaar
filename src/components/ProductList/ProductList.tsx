@@ -10,11 +10,11 @@ type ListProps = {
   productList: Product[];
   isLoading: boolean;
   setIsLoading: (value: boolean) => void;
-  fromFavList?: boolean;
+  fromPureList?: boolean;
 };
 
 const ProductList = ({
-  fromFavList = false,
+  fromPureList = false,
   productList,
   isLoading,
   setIsLoading,
@@ -48,7 +48,7 @@ const ProductList = ({
     <ProductItem product={item} key={item.id} />
   ));
 
-  const skeletonArray = fromFavList
+  const skeletonArray = fromPureList
     ? [1, 2, 3, 4, 5, 6, 7, 8]
     : [1, 2, 3, 4, 5, 6];
 
@@ -75,7 +75,7 @@ const ProductList = ({
     );
   });
 
-  const listClass = fromFavList ? "fav-list" : "product-list";
+  const listClass = fromPureList ? "fav-list" : "product-list";
 
   return (
     <section className="products-container">

@@ -34,6 +34,7 @@ export const PRODUCT_LIST = [
     isBest: true,
     color: "white",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 2,
@@ -49,6 +50,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "white",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 3,
@@ -64,6 +66,7 @@ export const PRODUCT_LIST = [
     isBest: true,
     color: "blue",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 4,
@@ -79,6 +82,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "brown",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 5,
@@ -94,6 +98,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "brown",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 6,
@@ -109,6 +114,7 @@ export const PRODUCT_LIST = [
     isBest: true,
     color: "brown",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 7,
@@ -124,6 +130,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "black",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 8,
@@ -139,6 +146,7 @@ export const PRODUCT_LIST = [
     isBest: true,
     color: "black",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 9,
@@ -154,6 +162,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "black",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 10,
@@ -169,6 +178,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "gray",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 11,
@@ -184,6 +194,7 @@ export const PRODUCT_LIST = [
     isBest: true,
     color: "black",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 12,
@@ -199,6 +210,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "yellow",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 13,
@@ -214,6 +226,7 @@ export const PRODUCT_LIST = [
     isBest: true,
     color: "white",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 14,
@@ -229,6 +242,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "brown",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 15,
@@ -244,6 +258,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "brown",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 16,
@@ -259,6 +274,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "black",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 17,
@@ -274,6 +290,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "gray",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 18,
@@ -289,6 +306,7 @@ export const PRODUCT_LIST = [
     isBest: true,
     color: "black",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 19,
@@ -304,6 +322,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "black",
     isFaved: false,
+    isDeleted: false,
   },
   {
     id: 20,
@@ -319,6 +338,7 @@ export const PRODUCT_LIST = [
     isBest: false,
     color: "white",
     isFaved: false,
+    isDeleted: false,
   },
 ];
 

@@ -38,11 +38,14 @@ const Products = () => {
   }, [queryParams]);
 
   useEffect(() => {
-    let result = allProducts.filter(
-      (product) =>
+    let result = allProducts.filter((product) => {
+      if (
         (product.category === selectedCategory || selectedCategory === "all") &&
-        product
-    );
+        !product.isDeleted
+      ) {
+        return product;
+      }
+    });
 
     result = filterBySearch(result);
     result = filterByOrder(result);
