@@ -122,7 +122,7 @@ const PriceSlider = () => {
     return sortedValues;
   };
 
-  const handleChangeValues = (event: Event, newValue: number | number[]) => {
+  const handleChangeValues = (_event: Event, newValue: number | number[]) => {
     setValues(newValue as number[]);
   };
 
