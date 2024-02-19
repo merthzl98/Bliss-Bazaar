@@ -79,7 +79,7 @@ In your Firebase project console, navigate to the Authentication section and ena
 »For the user role, successful API results are required.<br>
 »For the admin role, the email and password must contain the keyword "admin". 
 
-3.<b>Configure Firebase API Key:</b><br>
+4.<b>Configure Firebase API Key:</b><br>
 In the root of your project, create an <b>.env.development.local</b> file. Inside this file, define your Firebase project key using the <b>VITE_FIREBASE_API_KEY</b> constant. 
 
 <p>By following these steps, you can create a local Firebase project with authentication configured to log in with email and password. This setup allows differentiation between user and admin roles based on the provided credentials, and ensures that your Firebase API key is securely stored in your local environment.</p>
