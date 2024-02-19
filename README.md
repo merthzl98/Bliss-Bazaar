@@ -35,3 +35,35 @@
 » Firebase Authentication API <br>
 » Vite <br>
 » Vercel 
+
+<h2>Getting Started</h2>
+<h3>Prerequisites</h3>
+»To use the current version of npm. 
+
+```bash
+npm install npm@latest -g
+```
+
+<h3>Installation</h3>
+
+1.Clone the repo
+
+```bash
+git clone https://github.com/merthzl98/Bliss-Bazaar.git
+```
+
+2.Install NPM packages
+
+```bash
+npm install
+```
+
+3.Run the app
+
+```bash
+npm run dev
+```
+
+
+
+
