@@ -7,7 +7,6 @@ type InteractionsInitialState = {
 };
 
 const storedAllItems = localStorage.getItem("allProducts");
-const storedDeletedItems = localStorage.getItem("deletedProducts");
 
 const initialState: InteractionsInitialState = {
   allProducts: storedAllItems ? JSON.parse(storedAllItems) : PRODUCT_LIST,

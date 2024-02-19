@@ -123,8 +123,6 @@ const PriceSlider = () => {
   };
 
   const handleChangeValues = (event: Event, newValue: number | number[]) => {
-    console.log({ event });
-
     setValues(newValue as number[]);
   };
 
