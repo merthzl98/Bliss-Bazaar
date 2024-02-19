@@ -1,30 +1,69 @@
-# React + TypeScript + Vite
+<div align='center'><img style="width:10%" src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/logo/bb-logo.png?raw=true'/><h4>Bliss Bazaar</h4>👉<a href='https://bliss-bazaar.vercel.app'>Live Demo</a></div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2>About the project</h2>
+<p>Bliss Bazar is an e-commerce platform where users can browse products across multiple categories and utilize advanced filtering options. With its unique design, the platform is <b>responsive</b> and compatible with all devices. Users can access specific category lists by clicking on category images on the homepage. The application features three different roles: <b>guest, user, and admin</b>.</p>
 
-Currently, two official plugins are available:
+<h3>Guest Role</h3>
+<p>Guest users can browse and filter products on the platform but <b>cannot add items to favorites or purchase products added to the cart without logging in</b>. To log in, users can click on the avatar icon located in the navbar.</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h3>User Role</h3>
+<p>In addition to the features available to guest users, regular users <b>can add products to their favorites list</b>. They can access this list through the avatar icon in the navbar and remove items from the list if desired. Users <b>can also purchase products</b> added to the cart.</p>
 
-## Expanding the ESLint configuration
+<h4>User Credentials for Login:</h4>
+» Email: <b>user@user.com</b> <br>
+» Password: <b>useruser</b>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h3>Admin Role</h3>
+<p>Admin users have all the features available to regular users. Additionally, they <b>can delete listed products</b> and access the list of deleted items through the avatar icon in the navbar. Admins also have the ability to <b>relist deleted products</b> if necessary.</p>
 
-- Configure the top-level `parserOptions` property like this:
+<h4>Admin Credentials for Login:</h4>
+» Email: <b>admin@admin.com</b> <br>
+» Password: <b>adminadmin</b> 
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+<h4> <b>Please note that due to the absence of a role-based permission authorization service, client-side handling based on authentication has been simulated according to the user's account.</b></h4>
+
+
+<h2>Built With</h2>
+» TypeScript <br>
+» React <br>
+» Redux & Redux Toolkit <br>
+» React Router v6 <br>
+» Material UI <br>
+» SCSS <br>
+» Axios <br>
+» Firebase Authentication API <br>
+» Vite <br>
+» Vercel 
+
+<h2>Getting Started</h2>
+<h3>Prerequisites</h3>
+»To use the current version of npm. 
+
+```bash
+npm install npm@latest -g
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<h3>Installation</h3>
+
+1.Clone the repo
+
+```bash
+git clone https://github.com/merthzl98/Bliss-Bazaar.git
+```
+
+2.Install NPM packages
+
+```bash
+npm install
+```
+
+3.Run the app
+
+```bash
+npm run dev
+```
+
+
+
+
