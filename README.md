@@ -1,4 +1,4 @@
-<div align='center'><img style="width:10%" src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/logo/bb-logo.png?raw=true'/><h4>Bliss Bazaar</h4>👉<a href='https://car-rental-ten.vercel.app/'>Live Demo</a></div>
+<div align='center'><img style="width:10%" src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/logo/bb-logo.png?raw=true'/><h4>Bliss Bazaar</h4>👉<a href='https://bliss-bazaar.vercel.app'>Live Demo</a></div>
 
 <h2>About the project</h2>
 <p>Bliss Bazar is an e-commerce platform where users can browse products across multiple categories and utilize advanced filtering options. With its unique design, the platform is <b>responsive</b> and compatible with all devices. Users can access specific category lists by clicking on category images on the homepage. The application features three different roles: <b>guest, user, and admin</b>.</p>
@@ -24,3 +24,14 @@
 <h4> <b>Please note that due to the absence of a role-based permission authorization service, client-side handling based on authentication has been simulated according to the user's account.</b></h4>
 
 
+<h2>Built With</h2>
+» TypeScript <br>
+» React <br>
+» Redux & Redux Toolkit <br>
+» React Router v6 <br>
+» Material UI <br>
+» SCSS <br>
+» Axios <br>
+» Firebase Authentication API <br>
+» Vite <br>
+» Vercel 
