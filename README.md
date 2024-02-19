@@ -1,4 +1,4 @@
-<div align='center'><img style="width:10%" src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/logo/bb-logo.png?raw=true'/><h4>Bliss Bazaar</h4>👉<a href='https://bliss-bazaar.vercel.app'>Live Demo</a></div>
+<div align='center'><img style="width:10%" src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/logo/bb-logo.png?raw=true'/><h4>Bliss Bazaar</h4><a href='https://bliss-bazaar.vercel.app'>Live Demo</a></div>
 
 <h2>About the project</h2>
 <p>Bliss Bazar is an e-commerce platform where users can browse products across multiple categories and utilize advanced filtering options. With its unique design, the platform is <b>responsive</b> and compatible with all devices. Users can access specific category lists by clicking on category images on the homepage. The application features three different roles: <b>guest, user, and admin</b>.</p>
@@ -88,6 +88,31 @@ In the root of your project, create an <b>.env.development.local</b> file. Insid
 <h2>Screenshots of the Project </h2>
 <br>
 <h3 align='center'>Home Page </h3>
+
+<div align='center'>
+<img src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/pages/home-page.png?raw=true'/>
+</div>
+
+<br><br>
+
+<h3 align='center'>Products Page</h3>
+
+<div align='center'>
+<img src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/pages/products-page.png?raw=true'/>
+<br><br>
+
+<h3 align='center'>Favs Page</h3>
+
+<div align='center'>
+<img src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/pages/favs-page.png?raw=true'/>
+<br>
+<br><br>
+
+<h3 align='center'>Deleted List Page</h3>
+
+<div align='center'>
+<img src='https://github.com/merthzl98/Bliss-Bazaar/blob/main/src/assets/pages/deleted-page.png?raw=true'/>
+<br>
 
 
 
