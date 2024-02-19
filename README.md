@@ -64,6 +64,33 @@ npm install
 npm run dev
 ```
 
+<h3>Local Auth Setup </h3>
+<p>Please note that environment variables are not shared publicly. If you wish to utilize admin and user roles locally, you'll need to create a Firebase project.</p>
+
+To set up authentication in this Firebase project, follow these steps to enable login with email and password:
+
+1.<b>Create a Firebase Project:</b> <br>
+Click on the following link to create a Firebase project: <a href='https://firebase.google.com/'>Firebase Console</a>
+
+2.<b>Set Up Authentication:</b><br>
+In your Firebase project console, navigate to the Authentication section and enable email/password authentication.
+
+3.<b>Define User Roles:</b><br>
+»For the user role, successful API results are required.<br>
+»For the admin role, the email and password must contain the keyword "admin". 
+
+3.<b>Configure Firebase API Key:</b><br>
+In the root of your project, create an <b>.env.development.local</b> file. Inside this file, define your Firebase project key using the <b>VITE_FIREBASE_API_KEY</b> constant. 
+
+<p>By following these steps, you can create a local Firebase project with authentication configured to log in with email and password. This setup allows differentiation between user and admin roles based on the provided credentials, and ensures that your Firebase API key is securely stored in your local environment.</p>
+
+
+<h2>Screenshots of the Project </h2>
+<br>
+<h3 align='center'>Home Page </h3>
+
+
+
 
 
 
