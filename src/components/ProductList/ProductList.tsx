@@ -75,7 +75,7 @@ const ProductList = ({
     );
   });
 
-  const listClass = fromPureList ? "fav-list" : "product-list";
+  const listClass = fromPureList ? "pure-list" : "product-list";
 
   return (
     <section className="products-container">

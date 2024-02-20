@@ -8,8 +8,9 @@ import { setIsNotified } from "../../../store/notify-slice";
 
 const Notify = () => {
   const dispatch = useDispatch();
-  const notify = useSelector((state: RootState) => state.notify);
-  const { isNotified, message, severity } = notify;
+  const { isNotified, message, severity } = useSelector(
+    (state: RootState) => state.notify
+  );
 
   return (
     <Stack sx={{ width: "100%" }} spacing={2}>

@@ -4,9 +4,9 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { styled } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+
 import { setTextureList } from "../../store/filter-slice";
 import { RootState } from "../../store";
-
 import PriceSlider from "./PriceSlider";
 import CheckboxesGroup from "../UI/CheckboxesGroup/CheckboxesGroup";
 

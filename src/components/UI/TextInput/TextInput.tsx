@@ -43,9 +43,15 @@ type TextInputProps = {
   type: string;
 };
 
-const TextInput = (props: TextInputProps) => {
-  const { width, value, setValue, label, maxRows = 1, startIcon, type } = props;
-
+const TextInput = ({
+  width,
+  value,
+  setValue,
+  label,
+  maxRows = 1,
+  startIcon,
+  type,
+}: TextInputProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };

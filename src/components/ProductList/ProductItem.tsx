@@ -21,10 +21,10 @@ type ProductItemProps = {
 
 const ProductItem = ({ product }: ProductItemProps) => {
   const [isFaved, setIsFaved] = useState(product.isFaved);
-  const user = useSelector((state: RootState) => state.user);
+  const { hasLoggedIn, userLevel } = useSelector(
+    (state: RootState) => state.user
+  );
   const dispatch = useDispatch();
-
-  const { hasLoggedIn, userLevel } = user;
 
   const handleClickFav = () => {
     if (hasLoggedIn) {

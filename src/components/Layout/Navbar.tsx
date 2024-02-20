@@ -36,12 +36,14 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const user = useSelector((state: RootState) => state.user);
-  const cart = useSelector((state: RootState) => state.cart);
+  const { hasLoggedIn, userLevel } = useSelector(
+    (state: RootState) => state.user
+  );
+  const { totalQuantity, products } = useSelector(
+    (state: RootState) => state.cart
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const { totalQuantity, products } = cart;
 
   const open = !!anchorEl;
 
@@ -92,7 +94,7 @@ const Navbar = () => {
     handleCloseMenu();
   };
 
-  const menuContent = user.hasLoggedIn ? (
+  const menuContent = hasLoggedIn ? (
     <Menu
       disableScrollLock
       anchorEl={anchorEl}
@@ -105,7 +107,7 @@ const Navbar = () => {
       <MenuItem sx={{ fontSize: "1.5rem" }} onClick={handleNavigateFavs}>
         <FavoriteIcon sx={{ mr: 1 }} /> My Favs
       </MenuItem>
-      {user.userLevel === "admin" && (
+      {userLevel === "admin" && (
         <MenuItem
           sx={{ fontSize: "1.5rem" }}
           onClick={handleNavigateDeletedList}

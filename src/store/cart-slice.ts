@@ -32,7 +32,7 @@ export const cartSlice = createSlice({
         });
       } else {
         existingItem.quantity++;
-        existingItem.totalPrice = existingItem.totalPrice + existingItem.price;
+        existingItem.totalPrice += existingItem.price;
       }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
@@ -43,8 +43,7 @@ export const cartSlice = createSlice({
         state.products = state.products.filter((item) => item.id !== id);
       } else {
         existingItem!.quantity--;
-        existingItem!.totalPrice =
-          existingItem!.totalPrice - existingItem!.price;
+        existingItem!.totalPrice -= existingItem!.price;
       }
     },
 

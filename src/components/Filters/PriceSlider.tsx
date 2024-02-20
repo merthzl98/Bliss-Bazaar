@@ -104,7 +104,7 @@ const marks = [
 ];
 
 const PriceSlider = () => {
-  const [values, setValues] = useState<number[]>([3, 989]);
+  const [values, setValues] = useState([3, 989]);
   const dispatch = useDispatch();
 
   useEffect(() => {

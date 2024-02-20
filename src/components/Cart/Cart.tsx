@@ -79,7 +79,7 @@ const Cart = () => {
     return (
       <ListItem key={item.id}>
         <ListItemAvatar>
-          <Avatar src={item.img}>I</Avatar>
+          <Avatar src={item.img}/>
         </ListItemAvatar>
         <ListItemText
           primary={item.name}
@@ -153,7 +153,7 @@ const Cart = () => {
               py={1}
               fontSize={20}
             >
-              ${totalAmount}{" "}
+              ${totalAmount}
             </Typography>
           </Box>
         </Grid>

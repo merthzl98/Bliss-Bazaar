@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LockIcon from "@mui/icons-material/Lock";
+import { Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { AxiosResponse } from "axios";
 
@@ -10,7 +11,6 @@ import getToken from "../../api/auth-service";
 import { getLogin } from "../../store/user-slice";
 import { RootState } from "../../store";
 import { setIsShownLoginModal } from "../../store/ui-slice";
-import { Typography } from "@mui/material";
 import { setIsNotified } from "../../store/notify-slice";
 
 const SignIn = () => {

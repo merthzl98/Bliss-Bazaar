@@ -46,9 +46,13 @@ type SelectInputProps = {
   setValue: (value: string) => void;
 };
 
-const SelectInput = (props: SelectInputProps) => {
-  const { data, width, label, value, setValue } = props;
-
+const SelectInput = ({
+  data,
+  width,
+  label,
+  value,
+  setValue,
+}: SelectInputProps) => {
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
   };

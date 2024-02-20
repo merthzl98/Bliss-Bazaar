@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { MdChevronLeft } from "react-icons/md";
 import { Box } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 import "./HeadFilters.scss";
 import { CATEGORY_LIST, SORT_LIST } from "../../api/mock-data";
 import SelectInput from "../UI/SelectInput/SelectInput";
 import TextInput from "../UI/TextInput/TextInput";
-import SearchIcon from "@mui/icons-material/Search";
+
 
 type FiltersProps = {
   onClickCategory: (categoryTitle: string) => void;

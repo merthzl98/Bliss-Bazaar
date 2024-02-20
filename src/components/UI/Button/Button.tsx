@@ -9,8 +9,14 @@ type ButtonProps = {
   padding: string;
 };
 
-const Button = (props: ButtonProps) => {
-  const { text, onClick, fontSize, width, fontWeight, padding } = props;
+const Button = ({
+  text,
+  onClick,
+  fontSize,
+  width,
+  fontWeight,
+  padding,
+}: ButtonProps) => {
   return (
     <button
       style={{

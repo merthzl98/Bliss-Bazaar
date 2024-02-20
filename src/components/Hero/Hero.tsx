@@ -7,7 +7,7 @@ import kitchenyBanner from "../../assets/banners/kitchen-banner.jpg";
 import "./Hero.scss";
 
 const Hero = () => {
-  const [isShownTitle, setIsShownTitle] = useState<boolean>(true);
+  const [isShownTitle, setIsShownTitle] = useState(true);
 
   const handleHoverHero = () => {
     setIsShownTitle((prevState) => !prevState);

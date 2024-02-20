@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
 import ProductList from "../components/ProductList/ProductList";
-import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import { Product } from "../models/product";
 import { scrollToTop } from "../utils";

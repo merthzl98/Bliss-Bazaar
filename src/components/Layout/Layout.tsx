@@ -15,9 +15,9 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   const isNotified = useSelector((state: RootState) => state.notify.isNotified);
-  const ui = useSelector((state: RootState) => state.ui);
-
-  const { isShownCartModal, isShownLoginModal } = ui;
+  const { isShownCartModal, isShownLoginModal } = useSelector(
+    (state: RootState) => state.ui
+  );
 
   return (
     <div className="layout-container">

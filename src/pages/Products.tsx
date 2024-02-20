@@ -23,12 +23,12 @@ const Products = () => {
   const [colorList, setColorList] = useState(COLOR_LIST);
   const [isLoading, setIsLoading] = useState(false);
   const [isCalledSearch, setIsCalledSearch] = useState(false);
-  const filterValues = useSelector((state: RootState) => state.filter);
+  const { priceValues, textureList } = useSelector(
+    (state: RootState) => state.filter
+  );
   const allProducts = useSelector(
     (state: RootState) => state.interactions.allProducts
   );
-
-  const { priceValues, textureList } = filterValues;
 
   useEffect(() => {
     const queryParamValue = queryParams.get("category");
@@ -64,9 +64,10 @@ const Products = () => {
     colorList,
   ]);
 
+  //This effect was added so that it does not send requests with every keyboard stroke.
   useEffect(() => {
     const searchDelay = setTimeout(() => {
-      setIsCalledSearch((prevState: boolean) => !prevState);
+      setIsCalledSearch((prevState) => !prevState);
     }, 500);
 
     return () => {
@@ -94,7 +95,7 @@ const Products = () => {
         (product) =>
           product.description
             .toLowerCase()
-            .includes(searchValue.toLocaleLowerCase()) && product
+            .includes(searchValue.toLocaleLowerCase()) 
       );
     } else {
       searchedResult = result;
@@ -107,7 +108,7 @@ const Products = () => {
     let sortedResult: Product[] = [];
 
     if (orderValue === "best") {
-      sortedResult = result.filter((product) => !!product.isBest && product);
+      sortedResult = result.filter((product) => !!product.isBest);
     } else if (orderValue === "featured") {
       sortedResult = result;
     } else if (orderValue === "increasing") {
